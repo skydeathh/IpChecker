@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace IpChecker.Infrastructure;
-public static class IpChecker {
+public static class IpData {
     private static string _url = "http://ipwho.is/";
     private static HttpClient _httpClient = new();
     private static string json;

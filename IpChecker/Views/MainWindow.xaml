@@ -28,7 +28,7 @@
 				<ColumnDefinition Width="625*"/>
 				<ColumnDefinition Width="225*"/>
 			</Grid.ColumnDefinitions>
-			<Button Command="{Binding GetLocationCommand}"
+            <Button Command="{Binding GetLocationCommand}"
                 Width="150" Height="50" Content="Check Ip"
                 FontSize="18" FontWeight="Bold"
                 HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -39,13 +39,13 @@
 					<DropShadowEffect Color="Black" Direction="320" ShadowDepth="2" Opacity="0.5" BlurRadius="5" />
 				</Button.Effect>
 			</Button>
-			<TextBox Text="{Binding IPAddress}"
+            <TextBox Text="{Binding IpModel.IPAddressInput}"
                  Width="500" Height="100" FontSize="16" FontWeight="Bold"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  BorderBrush="#FF007ACC" BorderThickness="2"
                  Background="#FFF5F5F5" Foreground="#FF333333"/>
 		</Grid>
-		<Label Content="{Binding Location}"
+        <Label Content="{Binding IpModel.Location}"
                FontSize="24" FontWeight="Bold"
                Background="#FF333333" Foreground="White"
                Margin="10" Grid.Row="1">
