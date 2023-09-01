@@ -7,7 +7,7 @@ public class IPAdressModel : ViewModelBase {
     private string _ip;
     private string _location;
 
-    public string IPAddressInput {
+     public string IPAddressInput {
         get { return _ip; }
         set {
             _ip = value;
