@@ -11,20 +11,32 @@ using IpChecker.Infrastructure;
 
 namespace IpChecker.ViewModels;
 public class MainViewModel : ViewModelBase {
-    //public IPAdressModel IPAdressModel { get; set; }
     public ICommand GetLocationCommand { get; }
 
-    private IPAdressModel _ipModel;
-    public IPAdressModel IpModel {
+    private     IPAdressViewModel _ipModel;
+    private LocationViewModel _locationModel;
+
+    public IPAdressViewModel IpModel {
         get { return _ipModel; }
         set {
             _ipModel = value;
-            OnPropertyChanged(nameof(IPAdressModel));
+            OnPropertyChanged(nameof(IPAdressViewModel));
+        }   
+    }
+
+    public LocationViewModel LocationModel {
+        get { return _locationModel; }
+        set {
+            _locationModel = value;
+            OnPropertyChanged(nameof(IPAdressViewModel));
         }
     }
+
     public MainViewModel() {
-        _ipModel = new IPAdressModel();
+        LocationModel = new LocationViewModel();
+        IpModel = new IPAdressViewModel();
+
         GetLocationCommand = new RelayCommand(async ()
-            => await IpModel.GetLocationAsync());
+            => await LocationModel.GetLocationAsync(IpModel));
     }
 }

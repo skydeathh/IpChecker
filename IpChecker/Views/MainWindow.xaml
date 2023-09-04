@@ -45,7 +45,7 @@
                  BorderBrush="#FF007ACC" BorderThickness="2"
                  Background="#FFF5F5F5" Foreground="#FF333333"/>
 		</Grid>
-        <Label Content="{Binding IpModel.Location}"
+        <Label Content="{Binding LocationModel.Location}"
                FontSize="24" FontWeight="Bold"
                Background="#FF333333" Foreground="White"
                Margin="10" Grid.Row="1">
