@@ -8,35 +8,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using IpChecker.Infrastructure;
+using System.Collections.ObjectModel;
+using IpChecker.Models;
 
 namespace IpChecker.ViewModels;
 public class MainViewModel : ViewModelBase {
-    public ICommand GetLocationCommand { get; }
+    public ICommand GetDataCommand { get; }
 
-    private     IPAdressViewModel _ipModel;
-    private LocationViewModel _locationModel;
+    private IpAdressInputViewModel _ipInputModel;
+    private DataOutputViewModel _dataOutputModel;
 
-    public IPAdressViewModel IpModel {
-        get { return _ipModel; }
+    public IpAdressInputViewModel IpInputModel {
+        get { return _ipInputModel; }
         set {
-            _ipModel = value;
-            OnPropertyChanged(nameof(IPAdressViewModel));
+            _ipInputModel = value;
+            OnPropertyChanged(nameof(IpAdressInputViewModel));
         }   
     }
 
-    public LocationViewModel LocationModel {
-        get { return _locationModel; }
+    public DataOutputViewModel DataOutputModel {
+        get { return _dataOutputModel; }
         set {
-            _locationModel = value;
-            OnPropertyChanged(nameof(IPAdressViewModel));
+            _dataOutputModel = value;
+            OnPropertyChanged(nameof(_dataOutputModel));
         }
     }
 
     public MainViewModel() {
-        LocationModel = new LocationViewModel();
-        IpModel = new IPAdressViewModel();
+        IpInputModel = new IpAdressInputViewModel();
+        DataOutputModel = new DataOutputViewModel();
 
-        GetLocationCommand = new RelayCommand(async ()
-            => await LocationModel.GetLocationAsync(IpModel));
+        GetDataCommand = new RelayCommand(async ()
+            => await DataOutputModel.GetDataAsync(IpInputModel));
     }
 }

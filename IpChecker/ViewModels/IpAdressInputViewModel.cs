@@ -3,14 +3,14 @@ using IpChecker.Infrastructure;
 
 namespace IpChecker.ViewModels;
 
-public class IPAdressViewModel : ViewModelBase {
+public class IpAdressInputViewModel : ViewModelBase {
     private string _ip;
 
-     public string IPAddressInput {
+     public string Ip {
         get { return _ip; }
         set {
             _ip = value;
-            OnPropertyChanged(nameof(IPAddressInput));
+            OnPropertyChanged(nameof(Ip));
         }
      }
 }

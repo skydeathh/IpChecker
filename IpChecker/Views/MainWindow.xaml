@@ -7,7 +7,15 @@
 		xmlns:vm="clr-namespace:IpChecker.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-	<Window.DataContext>
+        <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="GroupTextBoxStyle">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#FF333333" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+    </Window.Resources>
+    <Window.DataContext>
 		<vm:MainViewModel/>
 	</Window.DataContext>
 	<Grid Margin="0,0,0,0"
@@ -28,7 +36,7 @@
 				<ColumnDefinition Width="625*"/>
 				<ColumnDefinition Width="225*"/>
 			</Grid.ColumnDefinitions>
-            <Button Command="{Binding GetLocationCommand}"
+            <Button Command="{Binding GetDataCommand}"
                 Width="150" Height="50" Content="Check Ip"
                 FontSize="18" FontWeight="Bold"
                 HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -39,19 +47,15 @@
 					<DropShadowEffect Color="Black" Direction="320" ShadowDepth="2" Opacity="0.5" BlurRadius="5" />
 				</Button.Effect>
 			</Button>
-            <TextBox Text="{Binding IpModel.IPAddressInput}"
-                 Width="500" Height="100" FontSize="16" FontWeight="Bold"
+            <TextBox Text="{Binding IpInputModel.Ip}"
+                 Width="500" Height="100" FontSize="65" FontWeight="Bold"
                  HorizontalAlignment="Center" VerticalAlignment="Center"
                  BorderBrush="#FF007ACC" BorderThickness="2"
                  Background="#FFF5F5F5" Foreground="#FF333333"/>
 		</Grid>
-        <Label Content="{Binding LocationModel.Location}"
-               FontSize="24" FontWeight="Bold"
-               Background="#FF333333" Foreground="White"
-               Margin="10" Grid.Row="1">
-			<Label.Effect>
-				<DropShadowEffect Color="Black" Direction="320" ShadowDepth="2" Opacity="0.5" BlurRadius="5" />
-			</Label.Effect>
-		</Label>
-	</Grid>
+        <Grid Margin="15" Grid.Row="1">
+            <TextBlock Style="{StaticResource GroupTextBoxStyle}" Text="{Binding DataOutputModel.Output}" />
+            <!-- Add more TextBlocks or other controls for other properties -->
+        </Grid>
+    </Grid>
 </Window>
